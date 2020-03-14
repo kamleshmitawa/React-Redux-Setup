@@ -9,7 +9,8 @@ class SecondComponent extends Component {
         
         return(
             <div>
-                <h2> Hii kashish Krish  heyy {this.props.name_reducer.name} </h2>
+                <h2> Hii kashish Krish  heyy -------------{this.props.name_reducer.name} </h2>
+
             </div>
         )
     }

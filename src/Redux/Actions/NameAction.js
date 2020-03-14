@@ -1,9 +1,10 @@
 
  export const NAME_UPDATE = 'NAME_UPDATE'
 
-const NameAction = () => {
+const NameAction = (val) => {
     return {
-        type : NAME_UPDATE
+        type : NAME_UPDATE,
+        payload: val
     }
 }
 

@@ -3,52 +3,43 @@ import React , { Component} from 'react'
 import { connect } from 'react-redux'
 import SecondComponent from './SecondComponent';
 import NameAction from '../Redux/Actions/NameAction';
+import store from '../store';
 
 class ShowNames extends Component {
+
+    onLCickHanlder = () => {
+        this.props.name_action('xyzzzzzzz')
+    // store.dispatch(NameAction('abccccc'))
+
+    }
     render(){
-        console.log(this.props, "ShowNames component", this.props.name_action)
-        
         return(
             <div>
-                <h2> Hii kashish </h2>
+                <h2> Hii {this.props.name} </h2>
                 <h3> this is second component: </h3>
                 <SecondComponent />
-                <input type="button" value="dispatch" onClick={() => this.props.name_action} />
+                <input type="button" value="dispatch" onClick={this.onLCickHanlder} />
             </div>
         )
     }
 }
 
-// const mapStateToProps ({ Name_Reducer }){
-//     return{
-
-//     }
-// }
 
 function mapStateToProps(state) {
     return({
-        name: state.name,
-        show: state.show
+        name: state.name_reducer.name,
+        show: state.name_reducer.show
 
     })
 }
 
 function mapDispatchToProps(dispatch) {
     return ({
-        name_action: dispatch.NameAction
+        name_action:(payload)=>  dispatch(NameAction(payload))
     })
 }
 
-// function mapDispatchToProps(dispatch) {
-//     return({
-//         name: this.props.dispatch(NameAction())
-
-//     })
-// }
 
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShowNames)
-
-
-// export default connect()(ShowNames)

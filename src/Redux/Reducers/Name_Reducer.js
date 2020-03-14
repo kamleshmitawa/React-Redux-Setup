@@ -10,7 +10,7 @@ import { NAME_UPDATE } from '../Actions/NameAction'
         switch(action.type){
             case NAME_UPDATE:
             return {
-                name: 'Kashish' ,
+                name: action.payload ,
                 show: false
             }
             default:
