@@ -7,6 +7,7 @@ import { NAME_UPDATE } from '../Actions/NameAction'
 
 
  const Name_Reducer = (state= initialState, action) => {
+     
         switch(action.type){
             case NAME_UPDATE:
             return {
